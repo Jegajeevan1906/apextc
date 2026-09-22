@@ -22,20 +22,20 @@ export default function CtaSection() {
         <div className="bg-[#593B57] rounded-3xl p-8 sm:p-12 md:p-14 border border-[#F26B5E]/40 shadow-xl text-center relative overflow-hidden text-[#FFF0D5]">
 
           {/* Top Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F26B5E]/20 border border-[#F26B5E]/40 mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F26B5E]/20 border border-[#F26B5E]/50 mb-6">
             <Sparkles className="w-4 h-4 text-[#F6C945] animate-star-glow" />
-            <span className="text-xs font-extrabold uppercase tracking-widest text-[#FFD6B8]">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#FFF0D5]">
               Admissions Open • Enroll Today
             </span>
           </div>
 
           {/* Heading */}
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#FFF0D5] tracking-tight font-heading mb-4">
-            Ready to <span className="text-[#FFD6B8]">Reach Beyond</span> the <span className="text-[#F6C945] font-serif italic">Stars?</span>
+            Ready to <span className="text-[#F6C945]">Reach Beyond</span> the <span className="text-[#FFD6B8] font-serif italic">Stars?</span>
           </h2>
 
           {/* Text */}
-          <p className="text-base sm:text-lg text-[#FFD6B8] font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-base sm:text-lg text-[#FFD6B8] font-semibold leading-relaxed max-w-2xl mx-auto mb-10">
             “Give your learning journey a strong foundation with APEX Tuition Center.”
           </p>
 
@@ -43,42 +43,42 @@ export default function CtaSection() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto mb-10">
 
             {/* Fee Card */}
-            <div className="bg-[#432941]/90 rounded-2xl p-4 border border-[#F8B878]/30 shadow-xs">
-              <div className="w-9 h-9 rounded-xl bg-[#F26B5E]/20 text-[#F26B5E] border border-[#F26B5E]/40 flex items-center justify-center mx-auto mb-2">
+            <div className="bg-[#FFF0D5] rounded-2xl p-5 border border-[#F8B878] shadow-md transform hover:-translate-y-1 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-[#FFD6B8] text-[#F26B5E] border border-[#F8B878] flex items-center justify-center mx-auto mb-2.5">
                 <BadgePercent className="w-5 h-5" />
               </div>
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FFD6B8] block">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#8064A2] block mb-0.5">
                 Course Fee
               </span>
-              <span className="text-xl font-black text-[#FFF0D5] font-heading">
-                ₹500 / Month
+              <span className="text-xl font-black text-[#593B57] font-heading block">
+                ₹500 <span className="text-sm text-[#F26B5E] font-bold">/ Month</span>
               </span>
             </div>
 
             {/* Timings Card */}
-            <div className="bg-[#432941]/90 rounded-2xl p-4 border border-[#F8B878]/30 shadow-xs">
-              <div className="w-9 h-9 rounded-xl bg-[#F6C945]/20 text-[#F6C945] border border-[#F6C945]/40 flex items-center justify-center mx-auto mb-2">
+            <div className="bg-[#FFF0D5] rounded-2xl p-5 border border-[#F8B878] shadow-md transform hover:-translate-y-1 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-[#FFD6B8] text-[#F28C38] border border-[#F8B878] flex items-center justify-center mx-auto mb-2.5">
                 <Clock className="w-5 h-5" />
               </div>
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FFD6B8] block">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#8064A2] block mb-0.5">
                 Tuition Timings
               </span>
-              <span className="text-xl font-black text-[#FFF0D5] font-heading">
+              <span className="text-xl font-black text-[#593B57] font-heading block">
                 5:00 PM – 9:00 PM
               </span>
             </div>
 
             {/* Direct Phone Card */}
-            <div className="bg-[#432941]/90 rounded-2xl p-4 border border-[#F8B878]/30 shadow-xs">
-              <div className="w-9 h-9 rounded-xl bg-[#F26B5E]/20 text-[#F26B5E] border border-[#F26B5E]/40 flex items-center justify-center mx-auto mb-2">
+            <div className="bg-[#FFF0D5] rounded-2xl p-5 border border-[#F8B878] shadow-md transform hover:-translate-y-1 transition-all">
+              <div className="w-10 h-10 rounded-xl bg-[#FFD6B8] text-[#F26B5E] border border-[#F8B878] flex items-center justify-center mx-auto mb-2.5">
                 <Phone className="w-5 h-5" />
               </div>
-              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#FFD6B8] block">
+              <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#8064A2] block mb-0.5">
                 Direct Contact
               </span>
               <a
                 href="tel:6382256206"
-                className="text-xl font-black text-[#FFF0D5] font-heading hover:text-[#F6C945] transition-colors"
+                className="text-xl font-black text-[#F26B5E] font-heading hover:text-[#D9574D] transition-colors block"
               >
                 6382256206
               </a>
@@ -90,7 +90,7 @@ export default function CtaSection() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="tel:6382256206"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[#FFF0D5] bg-[#F26B5E] hover:bg-[#D9574D] rounded-xl shadow-md transition-all duration-300 transform hover:-translate-y-0.5 gap-2"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-[#FFF0D5] bg-[#F26B5E] hover:bg-[#D9574D] rounded-xl shadow-md transition-all duration-300 transform hover:-translate-y-0.5 gap-2"
             >
               <GraduationCap className="w-5 h-5 text-[#FFF0D5]" />
               <span>Call to Enroll (6382256206)</span>
@@ -99,7 +99,7 @@ export default function CtaSection() {
 
             <a
               href="#location"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[#593B57] bg-[#F6C945] hover:bg-[#E0B335] border border-[#F6C945] rounded-xl shadow-xs transition-all duration-300 gap-2"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-extrabold text-[#593B57] bg-[#F6C945] hover:bg-[#E0B335] border border-[#F6C945] rounded-xl shadow-xs transition-all duration-300 gap-2"
             >
               <span>View Center Location</span>
             </a>
