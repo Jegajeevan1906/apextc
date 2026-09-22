@@ -8,28 +8,43 @@
     --font-cinzel: 'Cinzel', serif;
     --font-handwriting: 'Caveat', cursive;
 
-    /* Humanized & Elegant Warm Color Palette Tokens (No Tech Blue / No Stark White) */
-    --color-bg-primary: #FBF9F5;
-    --color-bg-secondary: #F7F3EC;
-    --color-bg-card: #F3EEE8;
-    --color-border-subtle: #E6DED5;
+    /* Exact Brand Palette Tokens */
+    --color-warm-ivory: #F7F0E3;
+    --color-sand: #E8D8BD;
+    --color-terracotta: #B85C38;
+    --color-burnt-sienna: #91452F;
+    --color-muted-sage: #8A9A78;
+    --color-deep-plum: #493447;
+    --color-antique-gold: #C59B4A;
+    --color-dark-coffee: #3B302A;
+    --color-soft-peach: #EBC7AD;
+    --color-muted-olive: #6F795D;
 
-    --color-terracotta: #C86D51;
-    --color-terracotta-hover: #B65C40;
-    --color-muted-ochre: #D99B4B;
-    --color-soft-clay: #EADCD0;
-
-    --color-text-espresso: #261C1A;
-    --color-text-umber: #6E625F;
-    --color-text-muted: #8C807D;
+    --color-bg-primary: #F7F0E3;
+    --color-bg-card: #FBF6ED;
+    --color-border-subtle: #E8D8BD;
   }
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #FBF9F5;
-  color: #6E625F;
+  background-color: #F7F0E3;
+  color: #3B302A;
   overflow-x: hidden;
+}
+
+/* Subtle Vintage Paper Grain Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
 .font-cinzel {
@@ -45,148 +60,116 @@ h2,
 h3,
 .font-heading {
   font-family: var(--font-heading);
-  color: #261C1A;
+  color: #493447;
 }
 
 .font-serif {
   font-family: var(--font-serif);
 }
 
-/* Warm Ceramic Glassmorphism Styles */
-.glass-card {
-  background: rgba(243, 238, 232, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid #E6DED5;
-  box-shadow: 0 10px 30px -10px rgba(38, 28, 26, 0.05);
-}
-
-.dark-glass-card {
-  background: rgba(243, 238, 232, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(200, 109, 81, 0.25);
-  box-shadow: 0 15px 35px rgba(38, 28, 26, 0.08);
-}
-
-.glass-btn {
-  background: rgba(251, 249, 245, 0.9);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid #E6DED5;
-  color: #261C1A;
+/* Tangible Printed Academic Card System */
+.academic-card {
+  background: #FBF6ED;
+  border: 1px solid #E8D8BD;
+  box-shadow: 0 4px 15px -3px rgba(73, 52, 71, 0.05);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.glass-btn:hover {
-  background: rgba(200, 109, 81, 0.1);
-  border-color: #C86D51;
-  color: #C86D51;
-  box-shadow: 0 4px 15px rgba(200, 109, 81, 0.15);
+.academic-card:hover {
+  transform: translateY(-3px);
+  border-color: #B85C38;
+  box-shadow: 0 10px 25px -5px rgba(184, 92, 56, 0.12);
 }
 
-.glow-terracotta {
-  filter: drop-shadow(0 0 12px rgba(200, 109, 81, 0.25));
+/* Primary & Secondary Buttons */
+.btn-primary {
+  background-color: #B85C38;
+  color: #F7F0E3;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(184, 92, 56, 0.2);
 }
 
-.glow-ochre {
-  filter: drop-shadow(0 0 14px rgba(217, 155, 75, 0.25));
+.btn-primary:hover {
+  background-color: #91452F;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(145, 69, 47, 0.25);
 }
 
-.glass-panel {
-  background: rgba(243, 238, 232, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid #E6DED5;
-  box-shadow: 0 8px 25px -8px rgba(38, 28, 26, 0.04);
+.btn-secondary {
+  background-color: #F7F0E3;
+  color: #493447;
+  border: 1.5px solid #493447;
+  transition: all 0.25s ease;
 }
 
-.glass-panel-gold {
-  background: rgba(217, 155, 75, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(217, 155, 75, 0.3);
-  box-shadow: 0 10px 30px -8px rgba(217, 155, 75, 0.12);
+.btn-secondary:hover {
+  background-color: #E8D8BD;
+  color: #3B302A;
+  border-color: #3B302A;
 }
 
-.glass-nav {
-  background: rgba(251, 249, 245, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid #E6DED5;
-  box-shadow: 0 4px 20px -2px rgba(38, 28, 26, 0.04);
+/* Section Background Variations */
+.section-hero {
+  background: linear-gradient(180deg, #F7F0E3 0%, #F5EAE0 60%, #F7F0E3 100%);
 }
 
-/* Gradients */
-.text-terracotta-gradient {
-  background: linear-gradient(135deg, #C86D51 0%, #D99B4B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.section-services {
+  background: linear-gradient(180deg, #F7F0E3 0%, #F4F6F1 50%, #F7F0E3 100%);
 }
 
-.text-gold-gradient {
-  background: linear-gradient(135deg, #C86D51 0%, #D99B4B 60%, #B65C40 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.section-routine {
+  background: linear-gradient(180deg, #F7F0E3 0%, #E8D8BD/30 50%, #F7F0E3 100%);
 }
 
-.text-cyan-gradient {
-  background: linear-gradient(135deg, #261C1A 0%, #C86D51 60%, #D99B4B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.section-about {
+  background: linear-gradient(180deg, #F7F0E3 0%, #F7EFE8 50%, #F7F0E3 100%);
 }
 
-.text-royal-gradient {
-  background: linear-gradient(135deg, #261C1A 0%, #C86D51 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.section-why-apex {
+  background: linear-gradient(180deg, #F7F0E3 0%, #F3F5F0 50%, #F7F0E3 100%);
 }
 
-.bg-terracotta-gradient {
-  background: linear-gradient(135deg, #C86D51 0%, #B65C40 100%);
+.section-location {
+  background: linear-gradient(180deg, #F7F0E3 0%, #F6F0E6 50%, #F7F0E3 100%);
 }
 
-.bg-gold-gradient {
-  background: linear-gradient(135deg, #C86D51 0%, #D99B4B 100%);
+.section-contact {
+  background: linear-gradient(180deg, #493447 0%, #3B302A 100%);
+  color: #F7F0E3;
 }
 
-.bg-footer-dark {
-  background-color: #F3EEE8;
+.section-footer {
+  background: #3B302A;
+  color: #E8D8BD;
+}
+
+/* Color Accent Text Classes */
+.text-terracotta {
+  color: #B85C38;
+}
+
+.text-burnt-sienna {
+  color: #91452F;
+}
+
+.text-deep-plum {
+  color: #493447;
+}
+
+.text-sage {
+  color: #8A9A78;
+}
+
+.text-gold {
+  color: #C59B4A;
 }
 
 /* Animations */
-@keyframes floatSlow {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-8px) rotate(1deg);
-  }
-}
-
-@keyframes floatReverse {
-
-  0%,
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(7px) rotate(-1deg);
-  }
-}
-
 @keyframes starGlow {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.35;
     transform: scale(0.95);
   }
-
   50% {
     opacity: 0.95;
     transform: scale(1.1);
@@ -194,40 +177,18 @@ h3,
 }
 
 @keyframes pulseGlow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(200, 109, 81, 0.3);
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(184, 92, 56, 0.3);
   }
-
   50% {
-    box-shadow: 0 0 0 10px rgba(200, 109, 81, 0);
+    box-shadow: 0 0 0 8px rgba(184, 92, 56, 0);
   }
-}
-
-.animate-float-slow {
-  animation: floatSlow 6s ease-in-out infinite;
-}
-
-.animate-float-reverse {
-  animation: floatReverse 7s ease-in-out infinite;
 }
 
 .animate-star-glow {
-  animation: starGlow 3s ease-in-out infinite;
+  animation: starGlow 3.5s ease-in-out infinite;
 }
 
 .animate-pulse-glow {
   animation: pulseGlow 2.5s infinite;
-}
-
-/* Card Hover Elevation */
-.academic-card {
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.academic-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(200, 109, 81, 0.35);
-  box-shadow: 0 15px 30px -8px rgba(38, 28, 26, 0.08);
 }

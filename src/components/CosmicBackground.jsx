@@ -40,77 +40,80 @@ export default function CosmicBackground() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    // Humanized Warm Editorial Palette definition
+    // Exact Brand Palette definition
     const PALETTE = {
-      terracotta: '#C86D51',
-      spicedClay: '#B65C40',
-      mutedOchre: '#D99B4B',
-      softClay: '#EADCD0',
-      deepEspresso: '#261C1A',
-      mutedUmber: '#6E625F',
-      sand: '#E6DED5'
+      warmIvory: '#F7F0E3',
+      sand: '#E8D8BD',
+      terracotta: '#B85C38',
+      burntSienna: '#91452F',
+      mutedSage: '#8A9A78',
+      deepPlum: '#493447',
+      antiqueGold: '#C59B4A',
+      darkCoffee: '#3B302A',
+      softPeach: '#EBC7AD',
+      mutedOlive: '#6F795D'
     };
 
     const trailColors = [
+      PALETTE.antiqueGold,
       PALETTE.terracotta,
-      PALETTE.spicedClay,
-      PALETTE.mutedOchre,
-      PALETTE.softClay,
-      PALETTE.deepEspresso
+      PALETTE.softPeach,
+      PALETTE.mutedSage,
+      PALETTE.deepPlum
     ];
 
     // Particle storage
     const cursorParticles = [];
     const clickBursts = [];
 
-    // Spawn Cursor Stardust
+    // Spawn Cursor Stardust (3 - 7 academic dust particles)
     const spawnStardust = (x, y, count = 4) => {
       if (prefersReducedMotion) return;
       for (let i = 0; i < count; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 0.9 + 0.3;
+        const speed = Math.random() * 0.8 + 0.3;
         const color = trailColors[Math.floor(Math.random() * trailColors.length)];
         cursorParticles.push({
-          x: x + (Math.random() - 0.5) * 12,
-          y: y + (Math.random() - 0.5) * 12,
+          x: x + (Math.random() - 0.5) * 10,
+          y: y + (Math.random() - 0.5) * 10,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed - 0.2,
-          size: Math.random() * 3 + 1,
-          alpha: Math.random() * 0.55 + 0.3,
+          size: Math.random() * 2.5 + 1,
+          alpha: Math.random() * 0.5 + 0.3,
           rotation: Math.random() * Math.PI * 2,
           rotSpeed: (Math.random() - 0.5) * 0.08,
           color,
           life: 1.0,
-          decay: Math.random() * 0.02 + 0.015,
-          isStar: Math.random() < 0.3
+          decay: Math.random() * 0.025 + 0.02, // 700 - 900ms fade
+          isStar: Math.random() < 0.35
         });
       }
-      if (cursorParticles.length > 50) cursorParticles.splice(0, cursorParticles.length - 50);
+      if (cursorParticles.length > 30) cursorParticles.splice(0, cursorParticles.length - 30);
     };
 
-    // Spawn Click/Touch Burst Sparkles
+    // Spawn Click/Touch Burst (spark of learning fading in 700-900ms)
     const spawnClickBurst = (x, y) => {
       if (prefersReducedMotion) return;
-      const count = Math.floor(Math.random() * 10) + 10;
-      const starSymbols = ['✦', '✧', '⋆', '✨'];
+      const count = Math.floor(Math.random() * 6) + 8;
+      const starSymbols = ['✦', '✧', '⋆', '•', '+'];
       for (let i = 0; i < count; i++) {
-        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.3;
-        const speed = Math.random() * 2.2 + 1.0;
-        const color = trailColors[Math.floor(Math.random() * trailColors.length)];
+        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.25;
+        const speed = Math.random() * 1.8 + 0.8;
+        const color = [PALETTE.antiqueGold, PALETTE.terracotta, PALETTE.mutedSage][i % 3];
         const symbol = starSymbols[Math.floor(Math.random() * starSymbols.length)];
         clickBursts.push({
           x,
           y,
           vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.4,
+          vy: Math.sin(angle) * speed - 0.3,
           size: Math.random() * 3 + 2,
-          alpha: 0.95,
+          alpha: 0.9,
           color,
           symbol,
           rotation: Math.random() * Math.PI * 2,
           rotSpeed: (Math.random() - 0.5) * 0.1,
           life: 1.0,
-          decay: Math.random() * 0.025 + 0.018
+          decay: Math.random() * 0.03 + 0.022 // ~800ms
         });
       }
     };
@@ -572,41 +575,44 @@ export default function CosmicBackground() {
       ctx.clearRect(0, 0, width, height);
 
       // -------------------------------------------------------------
-      // LAYER 0: Warm Linen / Alabaster Base Gradient
+      // LAYER 0: Warm Ivory / Cream Base Palette (#F7F0E3)
       // -------------------------------------------------------------
       const bgGrad = ctx.createLinearGradient(0, 0, width, height);
-      bgGrad.addColorStop(0, '#FBF9F5');
-      bgGrad.addColorStop(0.5, '#F7F3EC');
-      bgGrad.addColorStop(1, '#F2ECE4');
+      bgGrad.addColorStop(0, '#F7F0E3');
+      bgGrad.addColorStop(0.5, '#FBF6ED');
+      bgGrad.addColorStop(1, '#EFE3D0');
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, width, height);
 
       // -------------------------------------------------------------
-      // LAYER 1: Animated Soft Terracotta & Ochre Radial Glow Orbs
+      // LAYER 1: Subtle Organic Paper & Watercolor Natural Washes
       // -------------------------------------------------------------
-      const blob1X = width * 0.2 + Math.sin(time * 0.4) * 60;
-      const blob1Y = height * 0.25 + Math.cos(time * 0.3) * 45 - scrollY * 0.04;
-      const g1 = ctx.createRadialGradient(blob1X, blob1Y, 10, blob1X, blob1Y, width * 0.4);
-      g1.addColorStop(0, 'rgba(200, 109, 81, 0.07)');
-      g1.addColorStop(1, 'rgba(251, 249, 245, 0)');
-      ctx.fillStyle = g1;
-      ctx.fillRect(0, 0, width, height);
+      ctx.save();
+      ctx.globalAlpha = 0.035;
 
-      const blob2X = width * 0.78 + Math.cos(time * 0.35) * 55;
-      const blob2Y = height * 0.60 + Math.sin(time * 0.45) * 50 - scrollY * 0.05;
-      const g2 = ctx.createRadialGradient(blob2X, blob2Y, 10, blob2X, blob2Y, width * 0.42);
-      g2.addColorStop(0, 'rgba(217, 155, 75, 0.07)');
-      g2.addColorStop(1, 'rgba(251, 249, 245, 0)');
-      ctx.fillStyle = g2;
-      ctx.fillRect(0, 0, width, height);
+      // Soft Peach & Terracotta Paper Wash 1
+      const wash1X = width * 0.25 + Math.sin(time * 0.2) * 30;
+      const wash1Y = height * 0.3 - scrollY * 0.03;
+      ctx.fillStyle = PALETTE.softPeach;
+      ctx.beginPath();
+      ctx.ellipse(wash1X, wash1Y, width * 0.35, height * 0.22, 0.2, 0, Math.PI * 2);
+      ctx.fill();
 
-      const blob3X = width * 0.45 + Math.sin(time * 0.25) * 45;
-      const blob3Y = height * 0.88 + Math.cos(time * 0.2) * 35 - scrollY * 0.06;
-      const g3 = ctx.createRadialGradient(blob3X, blob3Y, 10, blob3X, blob3Y, width * 0.35);
-      g3.addColorStop(0, 'rgba(182, 92, 64, 0.05)');
-      g3.addColorStop(1, 'rgba(251, 249, 245, 0)');
-      ctx.fillStyle = g3;
-      ctx.fillRect(0, 0, width, height);
+      // Muted Sage Watercolor Wash 2
+      const wash2X = width * 0.75 + Math.cos(time * 0.15) * 35;
+      const wash2Y = height * 0.65 - scrollY * 0.04;
+      ctx.fillStyle = PALETTE.mutedSage;
+      ctx.beginPath();
+      ctx.ellipse(wash2X, wash2Y, width * 0.3, height * 0.25, -0.3, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Sand & Terracotta Natural Shape 3
+      const wash3X = width * 0.45 + Math.sin(time * 0.18) * 25;
+      const wash3Y = height * 0.9 - scrollY * 0.05;
+      ctx.fillStyle = PALETTE.terracotta;
+      ctx.beginPath();
+      ctx.ellipse(wash3X, wash3Y, width * 0.28, height * 0.2, 0.15, 0, Math.PI * 2);
+      ctx.restore();
 
       // -------------------------------------------------------------
       // LAYER 2: Gentle Twinkling Celestial Stars

@@ -9,8 +9,8 @@ export default function QuickInfoStrip() {
       subtitle: 'All Subjects',
       badge: 'Foundational Support',
       icon: BookOpen,
-      iconBg: 'bg-[#C86D51]/15 text-[#C86D51] border border-[#C86D51]/30',
-      borderGlow: 'hover:border-[#C86D51]/50',
+      iconBg: 'bg-[#B85C38]/15 text-[#B85C38] border border-[#B85C38]/30',
+      borderGlow: 'hover:border-[#B85C38]/50',
     },
     {
       label: 'Higher Secondary',
@@ -18,8 +18,8 @@ export default function QuickInfoStrip() {
       subtitle: 'Maths Only',
       badge: 'Specialized Coaching',
       icon: Calculator,
-      iconBg: 'bg-[#D99B4B]/15 text-[#B87A2D] border border-[#D99B4B]/30',
-      borderGlow: 'hover:border-[#D99B4B]/50',
+      iconBg: 'bg-[#8A9A78]/15 text-[#6F795D] border border-[#8A9A78]/30',
+      borderGlow: 'hover:border-[#8A9A78]/50',
     },
     {
       label: 'Tuition Timing',
@@ -27,8 +27,8 @@ export default function QuickInfoStrip() {
       subtitle: 'Focused Study Hours',
       badge: 'Daily Batches',
       icon: Clock,
-      iconBg: 'bg-[#6E625F]/15 text-[#261C1A] border border-[#6E625F]/30',
-      borderGlow: 'hover:border-[#6E625F]/50',
+      iconBg: 'bg-[#493447]/15 text-[#493447] border border-[#493447]/30',
+      borderGlow: 'hover:border-[#493447]/50',
     },
     {
       label: 'Affordable Fee',
@@ -36,8 +36,8 @@ export default function QuickInfoStrip() {
       subtitle: 'Per Student (₹500/- PM)',
       badge: 'Best Value in Town',
       icon: BadgePercent,
-      iconBg: 'bg-[#C86D51] text-white border border-[#C86D51]',
-      borderGlow: 'hover:border-[#C86D51]',
+      iconBg: 'bg-[#B85C38] text-[#F7F0E3] border border-[#B85C38]',
+      borderGlow: 'hover:border-[#B85C38]',
       highlight: true,
     },
   ];
@@ -51,10 +51,10 @@ export default function QuickInfoStrip() {
             return (
               <div
                 key={idx}
-                className={`rounded-2xl p-5 border backdrop-blur-md transition-all duration-300 shadow-md ${
+                className={`rounded-2xl p-5 border transition-all duration-300 shadow-xs ${
                   card.highlight
-                    ? 'bg-[#F3EEE8] border-[#C86D51]/50 ring-1 ring-[#C86D51]/30'
-                    : 'bg-[#F3EEE8]/90 border-[#E6DED5]'
+                    ? 'bg-[#FBF6ED] border-[#B85C38]/50 ring-1 ring-[#B85C38]/30'
+                    : 'bg-[#FBF6ED] border-[#E8D8BD]'
                 } ${card.borderGlow}`}
               >
                 <div className="flex items-start justify-between mb-3">
@@ -64,8 +64,8 @@ export default function QuickInfoStrip() {
                   <span
                     className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
                       card.highlight
-                        ? 'bg-[#C86D51]/15 text-[#C86D51] border border-[#C86D51]/30 shadow-xs'
-                        : 'bg-[#FBF9F5] text-[#6E625F] border border-[#E6DED5]'
+                        ? 'bg-[#B85C38]/15 text-[#B85C38] border border-[#B85C38]/30 shadow-xs'
+                        : 'bg-[#F7F0E3] text-[#493447] border border-[#E8D8BD]'
                     }`}
                   >
                     {card.badge}
@@ -73,13 +73,13 @@ export default function QuickInfoStrip() {
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#6E625F] block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#8A9A78] block">
                     {card.label}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#261C1A] tracking-tight font-heading">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#493447] tracking-tight font-heading">
                     {card.title}
                   </h3>
-                  <p className="text-sm font-semibold text-[#C86D51]">
+                  <p className="text-sm font-semibold text-[#B85C38]">
                     {card.subtitle}
                   </p>
                 </div>
