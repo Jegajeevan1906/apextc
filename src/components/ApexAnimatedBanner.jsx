@@ -65,7 +65,7 @@ export default function ApexAnimatedBanner() {
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    const dustColors = ['#B85C38', '#C59B4A', '#91452F', '#8A9A78', '#EBC7AD'];
+    const dustColors = ['#F26B5E', '#F6C945', '#F28C38', '#A8D5BA', '#C9B6E4'];
     for (let i = 0; i < 3; i++) {
       dustParticlesRef.current.push({
         x,
@@ -95,9 +95,9 @@ export default function ApexAnimatedBanner() {
   };
 
   return (
-    <div className="rounded-3xl p-2 sm:p-4 relative overflow-hidden group w-full border border-[#E8D8BD] shadow-xs bg-[#FBF6ED]">
+    <div className="rounded-3xl p-2 sm:p-4 relative overflow-hidden group w-full border border-[#F8B878] shadow-xs bg-[#FFD6B8]">
       {/* Internal Container for 1.mp4 Video Banner */}
-      <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#3B302A]/10 border border-[#E8D8BD]">
+      <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#593B57]/10 border border-[#F8B878]">
         <video
           ref={videoRef}
           src="/1.mp4"
@@ -120,16 +120,16 @@ export default function ApexAnimatedBanner() {
           <button
             onClick={toggleSound}
             type="button"
-            className="text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5 font-bold shadow-xs hover:scale-105 transition-all cursor-pointer bg-[#F7F0E3]/95 text-[#493447] border border-[#E8D8BD]"
+            className="text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5 font-bold shadow-xs hover:scale-105 transition-all cursor-pointer bg-[#FFF0D5]/95 text-[#593B57] border border-[#F8B878]"
           >
             {!isMuted ? (
               <>
-                <Volume2 className="w-3.5 h-3.5 text-[#B85C38]" />
+                <Volume2 className="w-3.5 h-3.5 text-[#F26B5E]" />
                 <span>Mute</span>
               </>
             ) : (
               <>
-                <VolumeX className="w-3.5 h-3.5 text-[#3B302A]" />
+                <VolumeX className="w-3.5 h-3.5 text-[#593B57]" />
                 <span>Unmute</span>
               </>
             )}
@@ -138,9 +138,9 @@ export default function ApexAnimatedBanner() {
           <button
             onClick={handleReplay}
             type="button"
-            className="text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5 font-bold shadow-xs hover:scale-105 transition-all cursor-pointer bg-[#F7F0E3]/95 text-[#493447] border border-[#E8D8BD]"
+            className="text-xs px-3.5 py-1.5 rounded-full flex items-center gap-1.5 font-bold shadow-xs hover:scale-105 transition-all cursor-pointer bg-[#FFF0D5]/95 text-[#593B57] border border-[#F8B878]"
           >
-            <RotateCcw className="w-3.5 h-3.5 text-[#C59B4A]" />
+            <RotateCcw className="w-3.5 h-3.5 text-[#F28C38]" />
             <span>Replay</span>
           </button>
         </div>

@@ -40,26 +40,28 @@ export default function CosmicBackground() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    // Exact Brand Palette definition
+    // Exact Brand Palette definition (Kid-friendly + Parent-trusted Premium)
     const PALETTE = {
-      warmIvory: '#F7F0E3',
-      sand: '#E8D8BD',
-      terracotta: '#B85C38',
-      burntSienna: '#91452F',
-      mutedSage: '#8A9A78',
-      deepPlum: '#493447',
-      antiqueGold: '#C59B4A',
-      darkCoffee: '#3B302A',
-      softPeach: '#EBC7AD',
-      mutedOlive: '#6F795D'
+      coral: '#F26B5E',
+      orange: '#F28C38',
+      yellow: '#F6C945',
+      peach: '#FFD6B8',
+      mint: '#A8D5BA',
+      softMint: '#D7EEDB',
+      lavender: '#C9B6E4',
+      purple: '#8064A2',
+      plum: '#593B57',
+      cream: '#FFF0D5',
+      apricot: '#F8B878'
     };
 
     const trailColors = [
-      PALETTE.antiqueGold,
-      PALETTE.terracotta,
-      PALETTE.softPeach,
-      PALETTE.mutedSage,
-      PALETTE.deepPlum
+      PALETTE.coral,
+      PALETTE.yellow,
+      PALETTE.orange,
+      PALETTE.mint,
+      PALETTE.lavender,
+      PALETTE.purple
     ];
 
     // Particle storage
@@ -71,24 +73,24 @@ export default function CosmicBackground() {
       if (prefersReducedMotion) return;
       for (let i = 0; i < count; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 0.8 + 0.3;
+        const speed = Math.random() * 0.9 + 0.3;
         const color = trailColors[Math.floor(Math.random() * trailColors.length)];
         cursorParticles.push({
-          x: x + (Math.random() - 0.5) * 10,
-          y: y + (Math.random() - 0.5) * 10,
+          x: x + (Math.random() - 0.5) * 12,
+          y: y + (Math.random() - 0.5) * 12,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed - 0.2,
-          size: Math.random() * 2.5 + 1,
-          alpha: Math.random() * 0.5 + 0.3,
+          size: Math.random() * 3 + 1,
+          alpha: Math.random() * 0.6 + 0.3,
           rotation: Math.random() * Math.PI * 2,
           rotSpeed: (Math.random() - 0.5) * 0.08,
           color,
           life: 1.0,
           decay: Math.random() * 0.025 + 0.02, // 700 - 900ms fade
-          isStar: Math.random() < 0.35
+          isStar: Math.random() < 0.4
         });
       }
-      if (cursorParticles.length > 30) cursorParticles.splice(0, cursorParticles.length - 30);
+      if (cursorParticles.length > 35) cursorParticles.splice(0, cursorParticles.length - 35);
     };
 
     // Spawn Click/Touch Burst (spark of learning fading in 700-900ms)
@@ -98,16 +100,16 @@ export default function CosmicBackground() {
       const starSymbols = ['✦', '✧', '⋆', '•', '+'];
       for (let i = 0; i < count; i++) {
         const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.25;
-        const speed = Math.random() * 1.8 + 0.8;
-        const color = [PALETTE.antiqueGold, PALETTE.terracotta, PALETTE.mutedSage][i % 3];
+        const speed = Math.random() * 2.0 + 0.9;
+        const color = [PALETTE.yellow, PALETTE.coral, PALETTE.orange, PALETTE.lavender, PALETTE.mint][i % 5];
         const symbol = starSymbols[Math.floor(Math.random() * starSymbols.length)];
         clickBursts.push({
           x,
           y,
           vx: Math.cos(angle) * speed,
           vy: Math.sin(angle) * speed - 0.3,
-          size: Math.random() * 3 + 2,
-          alpha: 0.9,
+          size: Math.random() * 3.5 + 2,
+          alpha: 0.95,
           color,
           symbol,
           rotation: Math.random() * Math.PI * 2,
@@ -171,22 +173,41 @@ export default function CosmicBackground() {
         radius: Math.random() * 1.8 + 0.8,
         color: trailColors[Math.floor(Math.random() * trailColors.length)],
         shape: starShapes[Math.floor(Math.random() * starShapes.length)],
-        baseAlpha: Math.random() * 0.25 + 0.1,
+        baseAlpha: Math.random() * 0.3 + 0.15,
         twinkleSpeed: Math.random() * 0.03 + 0.01,
         twinkleOffset: Math.random() * Math.PI * 2,
         parallaxFactor: Math.random() * 0.15 + 0.05
       });
     }
 
-    // STEM Watermark Texts (Maths, Physics, CS)
+    // Floating Colorful Clouds (Peach, Mint, Lavender, Cream)
+    const cloudCount = isMobile ? 3 : 5;
+    const clouds = [];
+    const cloudColors = [PALETTE.peach, PALETTE.mint, PALETTE.lavender, PALETTE.yellow, PALETTE.softMint];
+    for (let i = 0; i < cloudCount; i++) {
+      clouds.push({
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight * 1.5,
+        radiusX: Math.random() * 180 + 120,
+        radiusY: Math.random() * 90 + 60,
+        color: cloudColors[i % cloudColors.length],
+        alpha: Math.random() * 0.15 + 0.12,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.15,
+        parallaxFactor: 0.08
+      });
+    }
+
+    // STEM Watermark Texts (Maths, Physics, Chemistry, Biology)
     const stemTexts = [
-      '∫ f(x) dx', 'E = mc²', 'a² + b² = c²', 'λ = h/p',
-      '∇ × E = -∂B/∂t', 'lim_{x→∞}', 'cs.apexNode()', 'det(A) = |A|',
-      '{ key: val }', 'iℏ ∂/∂t Ψ', '⟨ψ|ϕ⟩', '</>', '∑_{i=1}^n i'
+      '∫ f(x) dx', 'E = mc²', 'a² + b² = c²', 'π = 3.14159',
+      '√x + y²', '∑_{i=1}^n i', 'C₆H₁₂O₆', 'DNA 🧬',
+      'λ = h/p', 'F = ma', 'det(A)', 'apex.learn()', '∞'
     ];
     const stemSymbols = [];
     const stemCount = isMobile ? 8 : 16;
     for (let i = 0; i < stemCount; i++) {
+      const stemColors = [PALETTE.coral, PALETTE.purple, PALETTE.yellow, PALETTE.orange, PALETTE.mint];
       stemSymbols.push({
         text: stemTexts[i % stemTexts.length],
         x: Math.random() * window.innerWidth,
@@ -194,8 +215,8 @@ export default function CosmicBackground() {
         vy: -Math.random() * 0.18 - 0.04,
         vx: (Math.random() - 0.5) * 0.1,
         fontSize: Math.floor(Math.random() * 6 + 13),
-        color: Math.random() > 0.5 ? PALETTE.terracotta : (Math.random() > 0.5 ? PALETTE.mutedOchre : PALETTE.mutedUmber),
-        alpha: Math.random() * 0.04 + 0.03, // Opacity: 0.04 - 0.08
+        color: stemColors[i % stemColors.length],
+        alpha: Math.random() * 0.06 + 0.04, // Opacity: 0.04 - 0.10
         parallaxFactor: 0.12
       });
     }
@@ -575,44 +596,75 @@ export default function CosmicBackground() {
       ctx.clearRect(0, 0, width, height);
 
       // -------------------------------------------------------------
-      // LAYER 0: Warm Ivory / Cream Base Palette (#F7F0E3)
+      // LAYER 0: Warm Cream Base Palette (#FFF0D5) with Soft Transitions
       // -------------------------------------------------------------
       const bgGrad = ctx.createLinearGradient(0, 0, width, height);
-      bgGrad.addColorStop(0, '#F7F0E3');
-      bgGrad.addColorStop(0.5, '#FBF6ED');
-      bgGrad.addColorStop(1, '#EFE3D0');
+      bgGrad.addColorStop(0, '#FFF0D5');
+      bgGrad.addColorStop(0.4, '#FFD6B8');
+      bgGrad.addColorStop(0.7, '#D7EEDB');
+      bgGrad.addColorStop(1, '#C9B6E4');
       ctx.fillStyle = bgGrad;
       ctx.fillRect(0, 0, width, height);
 
       // -------------------------------------------------------------
-      // LAYER 1: Subtle Organic Paper & Watercolor Natural Washes
+      // LAYER 1: Organic Colorful Paper Wash Shapes
       // -------------------------------------------------------------
       ctx.save();
-      ctx.globalAlpha = 0.035;
+      ctx.globalAlpha = 0.18;
 
-      // Soft Peach & Terracotta Paper Wash 1
-      const wash1X = width * 0.25 + Math.sin(time * 0.2) * 30;
-      const wash1Y = height * 0.3 - scrollY * 0.03;
-      ctx.fillStyle = PALETTE.softPeach;
+      // Coral Organic Shape 1
+      const wash1X = width * 0.22 + Math.sin(time * 0.2) * 35;
+      const wash1Y = height * 0.25 - scrollY * 0.03;
+      ctx.fillStyle = PALETTE.coral;
       ctx.beginPath();
-      ctx.ellipse(wash1X, wash1Y, width * 0.35, height * 0.22, 0.2, 0, Math.PI * 2);
+      ctx.ellipse(wash1X, wash1Y, width * 0.32, height * 0.22, 0.2, 0, Math.PI * 2);
       ctx.fill();
 
-      // Muted Sage Watercolor Wash 2
-      const wash2X = width * 0.75 + Math.cos(time * 0.15) * 35;
-      const wash2Y = height * 0.65 - scrollY * 0.04;
-      ctx.fillStyle = PALETTE.mutedSage;
+      // Sunshine Yellow Glow Shape 2
+      const wash2X = width * 0.78 + Math.cos(time * 0.15) * 40;
+      const wash2Y = height * 0.5 - scrollY * 0.04;
+      ctx.fillStyle = PALETTE.yellow;
       ctx.beginPath();
-      ctx.ellipse(wash2X, wash2Y, width * 0.3, height * 0.25, -0.3, 0, Math.PI * 2);
+      ctx.ellipse(wash2X, wash2Y, width * 0.35, height * 0.25, -0.3, 0, Math.PI * 2);
       ctx.fill();
 
-      // Sand & Terracotta Natural Shape 3
-      const wash3X = width * 0.45 + Math.sin(time * 0.18) * 25;
-      const wash3Y = height * 0.9 - scrollY * 0.05;
-      ctx.fillStyle = PALETTE.terracotta;
+      // Mint Cloud Shape 3
+      const wash3X = width * 0.35 + Math.sin(time * 0.18) * 30;
+      const wash3Y = height * 0.75 - scrollY * 0.05;
+      ctx.fillStyle = PALETTE.mint;
       ctx.beginPath();
-      ctx.ellipse(wash3X, wash3Y, width * 0.28, height * 0.2, 0.15, 0, Math.PI * 2);
+      ctx.ellipse(wash3X, wash3Y, width * 0.3, height * 0.22, 0.15, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Lavender Shape 4
+      const wash4X = width * 0.82 + Math.sin(time * 0.22) * 25;
+      const wash4Y = height * 0.95 - scrollY * 0.06;
+      ctx.fillStyle = PALETTE.lavender;
+      ctx.beginPath();
+      ctx.ellipse(wash4X, wash4Y, width * 0.33, height * 0.24, -0.1, 0, Math.PI * 2);
+      ctx.fill();
       ctx.restore();
+
+      // -------------------------------------------------------------
+      // LAYER 1.5: Floating Translucent Colorful Clouds
+      // -------------------------------------------------------------
+      clouds.forEach(c => {
+        if (!prefersReducedMotion) {
+          c.x += c.vx;
+          c.y += c.vy;
+          if (c.x < -c.radiusX) c.x = width + c.radiusX;
+          if (c.x > width + c.radiusX) c.x = -c.radiusX;
+        }
+        const cy = (c.y - scrollY * c.parallaxFactor + height * 2) % (height * 1.5);
+
+        ctx.save();
+        ctx.globalAlpha = c.alpha;
+        ctx.fillStyle = c.color;
+        ctx.beginPath();
+        ctx.ellipse(c.x, cy, c.radiusX, c.radiusY, 0.1, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
 
       // -------------------------------------------------------------
       // LAYER 2: Gentle Twinkling Celestial Stars

@@ -9,8 +9,11 @@ export default function QuickInfoStrip() {
       subtitle: 'All Subjects',
       badge: 'Foundational Support',
       icon: BookOpen,
-      iconBg: 'bg-[#B85C38]/15 text-[#B85C38] border border-[#B85C38]/30',
-      borderGlow: 'hover:border-[#B85C38]/50',
+      bg: 'bg-[#FFD6B8]',
+      border: 'border-[#F8B878]',
+      iconBg: 'bg-[#F26B5E]/20 text-[#F26B5E] border border-[#F26B5E]/40',
+      badgeStyle: 'bg-[#FFF0D5] text-[#F26B5E] border border-[#F8B878]',
+      labelColor: 'text-[#F26B5E]',
     },
     {
       label: 'Higher Secondary',
@@ -18,8 +21,11 @@ export default function QuickInfoStrip() {
       subtitle: 'Maths Only',
       badge: 'Specialized Coaching',
       icon: Calculator,
-      iconBg: 'bg-[#8A9A78]/15 text-[#6F795D] border border-[#8A9A78]/30',
-      borderGlow: 'hover:border-[#8A9A78]/50',
+      bg: 'bg-[#D7EEDB]',
+      border: 'border-[#A8D5BA]',
+      iconBg: 'bg-[#8064A2]/20 text-[#8064A2] border border-[#8064A2]/40',
+      badgeStyle: 'bg-[#FFF0D5] text-[#8064A2] border border-[#A8D5BA]',
+      labelColor: 'text-[#8064A2]',
     },
     {
       label: 'Tuition Timing',
@@ -27,8 +33,11 @@ export default function QuickInfoStrip() {
       subtitle: 'Focused Study Hours',
       badge: 'Daily Batches',
       icon: Clock,
-      iconBg: 'bg-[#493447]/15 text-[#493447] border border-[#493447]/30',
-      borderGlow: 'hover:border-[#493447]/50',
+      bg: 'bg-[#C9B6E4]/40',
+      border: 'border-[#C9B6E4]',
+      iconBg: 'bg-[#593B57]/20 text-[#593B57] border border-[#593B57]/40',
+      badgeStyle: 'bg-[#FFF0D5] text-[#593B57] border border-[#C9B6E4]',
+      labelColor: 'text-[#593B57]',
     },
     {
       label: 'Affordable Fee',
@@ -36,8 +45,11 @@ export default function QuickInfoStrip() {
       subtitle: 'Per Student (₹500/- PM)',
       badge: 'Best Value in Town',
       icon: BadgePercent,
-      iconBg: 'bg-[#B85C38] text-[#F7F0E3] border border-[#B85C38]',
-      borderGlow: 'hover:border-[#B85C38]',
+      bg: 'bg-[#FFF4CC]',
+      border: 'border-[#F6C945]',
+      iconBg: 'bg-[#F26B5E] text-[#FFF0D5] border border-[#F26B5E]',
+      badgeStyle: 'bg-[#F26B5E]/15 text-[#F26B5E] border border-[#F26B5E]/30',
+      labelColor: 'text-[#F28C38]',
       highlight: true,
     },
   ];
@@ -51,35 +63,27 @@ export default function QuickInfoStrip() {
             return (
               <div
                 key={idx}
-                className={`rounded-2xl p-5 border transition-all duration-300 shadow-xs ${
-                  card.highlight
-                    ? 'bg-[#FBF6ED] border-[#B85C38]/50 ring-1 ring-[#B85C38]/30'
-                    : 'bg-[#FBF6ED] border-[#E8D8BD]'
-                } ${card.borderGlow}`}
+                className={`rounded-2xl p-5 border transition-all duration-300 shadow-xs ${card.bg} ${card.border} hover:scale-[1.02]`}
               >
                 <div className="flex items-start justify-between mb-3">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${card.iconBg} shadow-xs`}>
                     <Icon className="w-6 h-6" />
                   </div>
                   <span
-                    className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
-                      card.highlight
-                        ? 'bg-[#B85C38]/15 text-[#B85C38] border border-[#B85C38]/30 shadow-xs'
-                        : 'bg-[#F7F0E3] text-[#493447] border border-[#E8D8BD]'
-                    }`}
+                    className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full ${card.badgeStyle}`}
                   >
                     {card.badge}
                   </span>
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#8A9A78] block">
+                  <span className={`text-xs font-extrabold uppercase tracking-wider ${card.labelColor} block`}>
                     {card.label}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#493447] tracking-tight font-heading">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#593B57] tracking-tight font-heading">
                     {card.title}
                   </h3>
-                  <p className="text-sm font-semibold text-[#B85C38]">
+                  <p className="text-sm font-bold text-[#F26B5E]">
                     {card.subtitle}
                   </p>
                 </div>

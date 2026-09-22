@@ -8,32 +8,33 @@
     --font-cinzel: 'Cinzel', serif;
     --font-handwriting: 'Caveat', cursive;
 
-    /* Exact Brand Palette Tokens */
-    --color-warm-ivory: #F7F0E3;
-    --color-sand: #E8D8BD;
-    --color-terracotta: #B85C38;
-    --color-burnt-sienna: #91452F;
-    --color-muted-sage: #8A9A78;
-    --color-deep-plum: #493447;
-    --color-antique-gold: #C59B4A;
-    --color-dark-coffee: #3B302A;
-    --color-soft-peach: #EBC7AD;
-    --color-muted-olive: #6F795D;
+    /* New Brand Palette Tokens */
+    --color-coral: #F26B5E;
+    --color-orange: #F28C38;
+    --color-yellow: #F6C945;
+    --color-peach: #FFD6B8;
+    --color-mint: #A8D5BA;
+    --color-soft-mint: #D7EEDB;
+    --color-lavender: #C9B6E4;
+    --color-purple: #8064A2;
+    --color-plum: #593B57;
+    --color-cream: #FFF0D5;
+    --color-apricot: #F8B878;
 
-    --color-bg-primary: #F7F0E3;
-    --color-bg-card: #FBF6ED;
-    --color-border-subtle: #E8D8BD;
+    --color-bg-primary: #FFF0D5;
+    --color-text-main: #593B57;
+    --color-border-subtle: #F8B878;
   }
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #F7F0E3;
-  color: #3B302A;
+  background-color: #FFF0D5;
+  color: #593B57;
   overflow-x: hidden;
 }
 
-/* Subtle Vintage Paper Grain Texture Overlay */
+/* Subtle Vintage Paper Texture Overlay */
 body::before {
   content: "";
   position: fixed;
@@ -43,7 +44,7 @@ body::before {
   height: 100vh;
   pointer-events: none;
   z-index: 1;
-  opacity: 0.025;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
@@ -60,7 +61,7 @@ h2,
 h3,
 .font-heading {
   font-family: var(--font-heading);
-  color: #493447;
+  color: #593B57;
 }
 
 .font-serif {
@@ -69,124 +70,171 @@ h3,
 
 /* Tangible Printed Academic Card System */
 .academic-card {
-  background: #FBF6ED;
-  border: 1px solid #E8D8BD;
-  box-shadow: 0 4px 15px -3px rgba(73, 52, 71, 0.05);
+  background: #FFF0D5;
+  border: 1px solid #F8B878;
+  box-shadow: 0 4px 15px -3px rgba(89, 59, 87, 0.06);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .academic-card:hover {
   transform: translateY(-3px);
-  border-color: #B85C38;
-  box-shadow: 0 10px 25px -5px rgba(184, 92, 56, 0.12);
+  border-color: #F26B5E;
+  box-shadow: 0 10px 25px -5px rgba(242, 107, 94, 0.15);
 }
 
-/* Primary & Secondary Buttons */
+/* Alternating Soft Pastel Card Classes */
+.card-peach {
+  background-color: #FFD6B8;
+  border-color: #F8B878;
+}
+
+.card-mint {
+  background-color: #D7EEDB;
+  border-color: #A8D5BA;
+}
+
+.card-lavender {
+  background-color: rgba(201, 182, 228, 0.4);
+  border-color: #C9B6E4;
+}
+
+.card-yellow {
+  background-color: #FFF4CC;
+  border-color: #F6C945;
+}
+
+.card-coral {
+  background-color: #FFD8D4;
+  border-color: #F26B5E;
+}
+
+.card-apricot {
+  background-color: rgba(248, 184, 120, 0.35);
+  border-color: #F8B878;
+}
+
+/* Buttons */
 .btn-primary {
-  background-color: #B85C38;
-  color: #F7F0E3;
+  background-color: #F26B5E;
+  color: #FFF0D5;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 12px rgba(184, 92, 56, 0.2);
+  box-shadow: 0 4px 12px rgba(242, 107, 94, 0.25);
 }
 
 .btn-primary:hover {
-  background-color: #91452F;
+  background-color: #D9574D;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(145, 69, 47, 0.25);
+  box-shadow: 0 6px 16px rgba(217, 87, 77, 0.3);
 }
 
 .btn-secondary {
-  background-color: #F7F0E3;
-  color: #493447;
-  border: 1.5px solid #493447;
+  background-color: #F6C945;
+  color: #593B57;
+  border: 1.5px solid #F6C945;
   transition: all 0.25s ease;
 }
 
 .btn-secondary:hover {
-  background-color: #E8D8BD;
-  color: #3B302A;
-  border-color: #3B302A;
+  background-color: #E0B335;
+  color: #4A3430;
+  border-color: #E0B335;
 }
 
-/* Section Background Variations */
+.btn-purple {
+  background-color: #8064A2;
+  color: #FFF0D5;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(128, 100, 162, 0.25);
+}
+
+.btn-purple:hover {
+  background-color: #6C508E;
+  transform: translateY(-1px);
+}
+
+/* Section Background Variations (Visibly Colorful Zones) */
 .section-hero {
-  background: linear-gradient(180deg, #F7F0E3 0%, #F5EAE0 60%, #F7F0E3 100%);
+  background: linear-gradient(180deg, #FFF0D5 0%, #FFD6B8 60%, rgba(242, 107, 94, 0.15) 100%);
 }
 
 .section-services {
-  background: linear-gradient(180deg, #F7F0E3 0%, #F4F6F1 50%, #F7F0E3 100%);
+  background: linear-gradient(180deg, #D7EEDB 0%, #FFF0D5 100%);
 }
 
 .section-routine {
-  background: linear-gradient(180deg, #F7F0E3 0%, #E8D8BD/30 50%, #F7F0E3 100%);
+  background: linear-gradient(180deg, rgba(201, 182, 228, 0.45) 0%, rgba(255, 214, 184, 0.5) 100%);
 }
 
 .section-about {
-  background: linear-gradient(180deg, #F7F0E3 0%, #F7EFE8 50%, #F7F0E3 100%);
+  background: linear-gradient(180deg, rgba(255, 214, 184, 0.5) 0%, rgba(246, 201, 69, 0.35) 100%);
 }
 
 .section-why-apex {
-  background: linear-gradient(180deg, #F7F0E3 0%, #F3F5F0 50%, #F7F0E3 100%);
+  background: linear-gradient(180deg, rgba(168, 213, 186, 0.4) 0%, rgba(201, 182, 228, 0.4) 100%);
 }
 
 .section-location {
-  background: linear-gradient(180deg, #F7F0E3 0%, #F6F0E6 50%, #F7F0E3 100%);
+  background: linear-gradient(180deg, rgba(246, 201, 69, 0.35) 0%, rgba(255, 214, 184, 0.45) 100%);
 }
 
 .section-contact {
-  background: linear-gradient(180deg, #493447 0%, #3B302A 100%);
-  color: #F7F0E3;
+  background: linear-gradient(180deg, rgba(242, 107, 94, 0.25) 0%, #593B57 100%);
+  color: #FFF0D5;
 }
 
 .section-footer {
-  background: #3B302A;
-  color: #E8D8BD;
+  background: linear-gradient(180deg, #593B57 0%, #3D263B 100%);
+  color: #FFD6B8;
 }
 
 /* Color Accent Text Classes */
-.text-terracotta {
-  color: #B85C38;
+.text-coral {
+  color: #F26B5E;
 }
 
-.text-burnt-sienna {
-  color: #91452F;
+.text-orange {
+  color: #F28C38;
 }
 
-.text-deep-plum {
-  color: #493447;
+.text-yellow {
+  color: #F6C945;
 }
 
-.text-sage {
-  color: #8A9A78;
+.text-plum {
+  color: #593B57;
 }
 
-.text-gold {
-  color: #C59B4A;
+.text-purple {
+  color: #8064A2;
+}
+
+.text-mint {
+  color: #A8D5BA;
 }
 
 /* Animations */
 @keyframes starGlow {
   0%, 100% {
-    opacity: 0.35;
+    opacity: 0.4;
     transform: scale(0.95);
   }
   50% {
-    opacity: 0.95;
-    transform: scale(1.1);
+    opacity: 1;
+    transform: scale(1.15);
   }
 }
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(184, 92, 56, 0.3);
+    box-shadow: 0 0 0 0 rgba(242, 107, 94, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(184, 92, 56, 0);
+    box-shadow: 0 0 0 8px rgba(242, 107, 94, 0);
   }
 }
 
 .animate-star-glow {
-  animation: starGlow 3.5s ease-in-out infinite;
+  animation: starGlow 3s ease-in-out infinite;
 }
 
 .animate-pulse-glow {

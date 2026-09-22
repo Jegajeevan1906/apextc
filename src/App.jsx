@@ -14,7 +14,7 @@ import FloatingCallButton from './components/FloatingCallButton';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col relative selection:bg-amber-100 selection:text-blue-900">
+    <div className="min-h-screen flex flex-col relative selection:bg-[#FFD6B8] selection:text-[#593B57]">
       {/* Live Animated Background Canvas */}
       <CosmicBackground />
 
