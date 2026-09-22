@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Calculator, Clock, BadgePercent, Sparkles } from 'lucide-react';
+import { BookOpen, Calculator, Clock, BadgePercent } from 'lucide-react';
 
 export default function QuickInfoStrip() {
   const cards = [
@@ -9,8 +9,8 @@ export default function QuickInfoStrip() {
       subtitle: 'All Subjects',
       badge: 'Foundational Support',
       icon: BookOpen,
-      iconBg: 'bg-blue-100 text-blue-700',
-      borderGlow: 'hover:border-blue-300',
+      iconBg: 'bg-[#C86D51]/15 text-[#C86D51] border border-[#C86D51]/30',
+      borderGlow: 'hover:border-[#C86D51]/50',
     },
     {
       label: 'Higher Secondary',
@@ -18,8 +18,8 @@ export default function QuickInfoStrip() {
       subtitle: 'Maths Only',
       badge: 'Specialized Coaching',
       icon: Calculator,
-      iconBg: 'bg-indigo-100 text-indigo-700',
-      borderGlow: 'hover:border-indigo-300',
+      iconBg: 'bg-[#D99B4B]/15 text-[#B87A2D] border border-[#D99B4B]/30',
+      borderGlow: 'hover:border-[#D99B4B]/50',
     },
     {
       label: 'Tuition Timing',
@@ -27,8 +27,8 @@ export default function QuickInfoStrip() {
       subtitle: 'Focused Study Hours',
       badge: 'Daily Batches',
       icon: Clock,
-      iconBg: 'bg-sky-100 text-sky-700',
-      borderGlow: 'hover:border-sky-300',
+      iconBg: 'bg-[#6E625F]/15 text-[#261C1A] border border-[#6E625F]/30',
+      borderGlow: 'hover:border-[#6E625F]/50',
     },
     {
       label: 'Affordable Fee',
@@ -36,8 +36,8 @@ export default function QuickInfoStrip() {
       subtitle: 'Per Student (₹500/- PM)',
       badge: 'Best Value in Town',
       icon: BadgePercent,
-      iconBg: 'bg-amber-100 text-amber-700',
-      borderGlow: 'hover:border-amber-300',
+      iconBg: 'bg-[#C86D51] text-white border border-[#C86D51]',
+      borderGlow: 'hover:border-[#C86D51]',
       highlight: true,
     },
   ];
@@ -51,10 +51,10 @@ export default function QuickInfoStrip() {
             return (
               <div
                 key={idx}
-                className={`academic-card rounded-2xl p-5 border backdrop-blur-md transition-all duration-300 ${
+                className={`rounded-2xl p-5 border backdrop-blur-md transition-all duration-300 shadow-md ${
                   card.highlight
-                    ? 'glass-panel-gold border-amber-300/80 shadow-md ring-1 ring-amber-400/20'
-                    : 'glass-panel border-slate-200/80'
+                    ? 'bg-[#F3EEE8] border-[#C86D51]/50 ring-1 ring-[#C86D51]/30'
+                    : 'bg-[#F3EEE8]/90 border-[#E6DED5]'
                 } ${card.borderGlow}`}
               >
                 <div className="flex items-start justify-between mb-3">
@@ -64,8 +64,8 @@ export default function QuickInfoStrip() {
                   <span
                     className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
                       card.highlight
-                        ? 'bg-amber-500 text-white shadow-xs'
-                        : 'bg-slate-100 text-slate-600'
+                        ? 'bg-[#C86D51]/15 text-[#C86D51] border border-[#C86D51]/30 shadow-xs'
+                        : 'bg-[#FBF9F5] text-[#6E625F] border border-[#E6DED5]'
                     }`}
                   >
                     {card.badge}
@@ -73,13 +73,13 @@ export default function QuickInfoStrip() {
                 </div>
 
                 <div className="space-y-1">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-650 block">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#6E625F] block">
                     {card.label}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight font-heading">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#261C1A] tracking-tight font-heading">
                     {card.title}
                   </h3>
-                  <p className="text-sm font-semibold text-blue-700">
+                  <p className="text-sm font-semibold text-[#C86D51]">
                     {card.subtitle}
                   </p>
                 </div>
@@ -91,3 +91,4 @@ export default function QuickInfoStrip() {
     </section>
   );
 }
+

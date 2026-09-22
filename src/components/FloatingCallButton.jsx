@@ -6,7 +6,7 @@ export default function FloatingCallButton() {
     <aside aria-label="Quick Phone Call" className="fixed bottom-6 right-6 z-40 md:hidden flex flex-col items-end">
       <a
         href="tel:6382256206"
-        className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white pl-3.5 pr-4 py-3 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-105 active:scale-95 animate-pulse-glow"
+        className="flex items-center gap-2 bg-[#C86D51] hover:bg-[#B65C40] text-white pl-3.5 pr-4 py-3 rounded-full shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95"
         aria-label="Call APEX Tuition Center at 6382256206"
       >
         <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">

@@ -1,4 +1,5 @@
 import React from 'react';
+import CosmicBackground from './components/CosmicBackground';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import QuickInfoStrip from './components/QuickInfoStrip';
@@ -13,42 +14,47 @@ import FloatingCallButton from './components/FloatingCallButton';
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF9F5] text-slate-800 selection:bg-amber-100 selection:text-blue-900">
-      {/* Sticky Navigation Bar */}
-      <Navbar />
+    <div className="min-h-screen flex flex-col relative selection:bg-amber-100 selection:text-blue-900">
+      {/* Live Animated Background Canvas */}
+      <CosmicBackground />
 
-      {/* Main Content Sections */}
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <Hero />
+      <div className="relative z-10 flex flex-col min-h-screen">
+        {/* Sticky Navigation Bar */}
+        <Navbar />
 
-        {/* Quick Information 4-Card Strip */}
-        <QuickInfoStrip />
+        {/* Main Content Sections */}
+        <main className="flex-grow">
+          {/* Hero Section */}
+          <Hero />
 
-        {/* Services / What We Provide */}
-        <Services />
+          {/* Quick Information 4-Card Strip */}
+          <QuickInfoStrip />
 
-        {/* Academic Routine Roadmap */}
-        <AcademicRoutine />
+          {/* Services / What We Provide */}
+          <Services />
 
-        {/* About Section */}
-        <About />
+          {/* Academic Routine Roadmap */}
+          <AcademicRoutine />
 
-        {/* Why Choose APEX? */}
-        <WhyApex />
+          {/* About Section */}
+          <About />
 
-        {/* Location & Directions */}
-        <LocationSection />
+          {/* Why Choose APEX? */}
+          <WhyApex />
 
-        {/* Final CTA Banner */}
-        <CtaSection />
-      </main>
+          {/* Location & Directions */}
+          <LocationSection />
 
-      {/* Footer */}
-      <Footer />
+          {/* Final CTA Banner */}
+          <CtaSection />
+        </main>
 
-      {/* Mobile Floating Contact Call Button */}
-      <FloatingCallButton />
+        {/* Footer */}
+        <Footer />
+
+        {/* Mobile Floating Contact Call Button */}
+        <FloatingCallButton />
+      </div>
     </div>
   );
 }
