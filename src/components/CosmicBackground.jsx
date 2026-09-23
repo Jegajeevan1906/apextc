@@ -64,58 +64,70 @@ export default function CosmicBackground() {
       PALETTE.purple
     ];
 
+    // STEM Glitter Symbols Array (Maths, Physics, Chemistry, Biology)
+    const stemGlitterSymbols = [
+      // Mathematics
+      'π', '√x', '∑', '∞', 'x²', 'a²+b²', '∫', 'Δ', 'θ',
+      // Physics
+      'E=mc²', 'λ', '⚛', 'F=ma', 'v=d/t', 'Ω',
+      // Chemistry
+      '🧪', '⬡', 'H₂O', 'C₆H₁₂O₆', 'pH', 'CO₂',
+      // Biology
+      '🧬', '🔬', '🌿', '🌱', '🧫', '✦', '✧'
+    ];
+
     // Particle storage
     const cursorParticles = [];
     const clickBursts = [];
 
-    // Spawn Cursor Stardust (3 - 7 academic dust particles)
-    const spawnStardust = (x, y, count = 4) => {
+    // Spawn Cursor STEM Glitters (Math, Physics, Chemistry, Biology patterns)
+    const spawnStardust = (x, y, count = 5) => {
       if (prefersReducedMotion) return;
       for (let i = 0; i < count; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 0.9 + 0.3;
+        const speed = Math.random() * 1.4 + 0.5;
         const color = trailColors[Math.floor(Math.random() * trailColors.length)];
+        const symbol = stemGlitterSymbols[Math.floor(Math.random() * stemGlitterSymbols.length)];
         cursorParticles.push({
-          x: x + (Math.random() - 0.5) * 12,
-          y: y + (Math.random() - 0.5) * 12,
+          x: x + (Math.random() - 0.5) * 16,
+          y: y + (Math.random() - 0.5) * 16,
           vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.2,
-          size: Math.random() * 3 + 1,
-          alpha: Math.random() * 0.6 + 0.3,
-          rotation: Math.random() * Math.PI * 2,
-          rotSpeed: (Math.random() - 0.5) * 0.08,
+          vy: Math.sin(angle) * speed - 0.3,
+          size: Math.random() * 3.5 + 2.5,
+          alpha: Math.random() * 0.8 + 0.2,
+          rotation: (Math.random() - 0.5) * 0.5,
+          rotSpeed: (Math.random() - 0.5) * 0.1,
           color,
+          symbol,
           life: 1.0,
-          decay: Math.random() * 0.025 + 0.02, // 700 - 900ms fade
-          isStar: Math.random() < 0.4
+          decay: Math.random() * 0.02 + 0.015 // ~900ms fade
         });
       }
-      if (cursorParticles.length > 35) cursorParticles.splice(0, cursorParticles.length - 35);
+      if (cursorParticles.length > 50) cursorParticles.splice(0, cursorParticles.length - 50);
     };
 
-    // Spawn Click/Touch Burst (spark of learning fading in 700-900ms)
+    // Spawn Click/Touch STEM Sparkle Burst
     const spawnClickBurst = (x, y) => {
       if (prefersReducedMotion) return;
-      const count = Math.floor(Math.random() * 6) + 8;
-      const starSymbols = ['✦', '✧', '⋆', '•', '+'];
+      const count = Math.floor(Math.random() * 6) + 10;
       for (let i = 0; i < count; i++) {
-        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.25;
-        const speed = Math.random() * 2.0 + 0.9;
-        const color = [PALETTE.yellow, PALETTE.coral, PALETTE.orange, PALETTE.lavender, PALETTE.mint][i % 5];
-        const symbol = starSymbols[Math.floor(Math.random() * starSymbols.length)];
+        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.3;
+        const speed = Math.random() * 2.2 + 1.0;
+        const color = [PALETTE.yellow, PALETTE.coral, PALETTE.orange, PALETTE.lavender, PALETTE.mint, PALETTE.purple][i % 6];
+        const symbol = stemGlitterSymbols[Math.floor(Math.random() * stemGlitterSymbols.length)];
         clickBursts.push({
           x,
           y,
           vx: Math.cos(angle) * speed,
-          vy: Math.sin(angle) * speed - 0.3,
-          size: Math.random() * 3.5 + 2,
+          vy: Math.sin(angle) * speed - 0.35,
+          size: Math.random() * 4 + 3,
           alpha: 0.95,
           color,
           symbol,
           rotation: Math.random() * Math.PI * 2,
-          rotSpeed: (Math.random() - 0.5) * 0.1,
+          rotSpeed: (Math.random() - 0.5) * 0.12,
           life: 1.0,
-          decay: Math.random() * 0.03 + 0.022 // ~800ms
+          decay: Math.random() * 0.028 + 0.02 // ~800ms
         });
       }
     };
@@ -801,7 +813,7 @@ export default function CosmicBackground() {
       });
 
       // -------------------------------------------------------------
-      // LAYER 5: Cursor Stardust Particles
+      // LAYER 5: Cursor STEM Glitter Particles
       // -------------------------------------------------------------
       for (let i = cursorParticles.length - 1; i >= 0; i--) {
         const p = cursorParticles[i];
@@ -821,7 +833,10 @@ export default function CosmicBackground() {
         ctx.globalAlpha = p.life * p.alpha;
         ctx.fillStyle = p.color;
 
-        if (p.isStar) {
+        if (p.symbol) {
+          ctx.font = `600 ${Math.floor(p.size * 3.5 + 8)}px 'Inter', sans-serif`;
+          ctx.fillText(p.symbol, -p.size, p.size);
+        } else if (p.isStar) {
           ctx.beginPath();
           const r = p.size * 1.5;
           ctx.moveTo(0, -r);
